@@ -3,10 +3,10 @@
     <block wx:if="{{currentScreen === 'splash'}}">
       <splash-screen />
     </block>
-    <block wx:elif="{{currentScreen === 'login'}}">
+    <block wx:if="{{currentScreen === 'login'}}">
       <login-screen bind:login="handleLogin" bind:skip="handleSkip" />
     </block>
-    <block wx:elif="{{currentScreen === 'main'}}">
+    <block wx:if="{{currentScreen === 'main'}}">
       <main-screen />
     </block>
   </view>

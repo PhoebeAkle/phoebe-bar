@@ -1,10 +1,16 @@
 Component({
+  options: {
+    styleIsolation: 'apply-shared'
+  },
+
   properties: {
     onLogin: {
-      type: Function
+      type: Function,
+      value: null
     },
     onSkip: {
-      type: Function
+      type: Function,
+      value: null
     }
   },
 
@@ -18,7 +24,7 @@ Component({
   },
 
   methods: {
-    handleEmailLogin(e) {
+    handleEmailLogin() {
       const { email } = this.data
       if (!email) {
         this.setData({ error: '请输入邮箱地址' })
@@ -33,7 +39,7 @@ Component({
       this.triggerEvent('login')
     },
 
-    handlePhoneLogin(e) {
+    handlePhoneLogin() {
       const { phone, verificationCode } = this.data
       if (!phone) {
         this.setData({ error: '请输入手机号码' })
@@ -74,20 +80,33 @@ Component({
     },
 
     onEmailInput(e) {
-      this.setData({ email: e.detail.value })
+      this.setData({
+        email: e.detail.value,
+        error: ''
+      })
     },
 
     onPhoneInput(e) {
       const value = e.detail.value.replace(/\D/g, '')
-      this.setData({ phone: value })
+      this.setData({
+        phone: value,
+        error: ''
+      })
     },
 
     onCodeInput(e) {
-      this.setData({ verificationCode: e.detail.value })
+      this.setData({
+        verificationCode: e.detail.value,
+        error: ''
+      })
     },
 
     onTabChange(e) {
-      this.setData({ activeTab: e.detail.value })
+      const { value } = e.currentTarget.dataset
+      this.setData({
+        activeTab: value,
+        error: ''
+      })
     },
 
     onSkip() {
