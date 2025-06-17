@@ -1,0 +1,14 @@
+<view class="container">
+  <view class="content {{isTransitioning ? 'scale-95 opacity-0' : 'scale-100 opacity-100'}}">
+    <block wx:if="{{currentScreen === 'splash'}}">
+      <splash-screen />
+    </block>
+    <block wx:elif="{{currentScreen === 'login'}}">
+      <login-screen bind:login="handleLogin" bind:skip="handleSkip" />
+    </block>
+    <block wx:elif="{{currentScreen === 'main'}}">
+      <main-screen />
+    </block>
+  </view>
+  <view class="transition-mask {{isTransitioning ? 'opacity-100' : 'opacity-0'}}"></view>
+</view> 

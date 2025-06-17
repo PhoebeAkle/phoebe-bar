@@ -1,0 +1,23 @@
+<view class="main-container">
+  <image class="bg-image" src="/assets/images/main-bg.png" mode="aspectFill" />
+  
+  <view class="content">
+    <view class="features-grid">
+      <view class="feature-item" wx:for="{{features}}" wx:key="label" bindtap="onFeatureTap" data-index="{{index}}">
+        <image class="feature-icon" src="{{item.icon}}" mode="aspectFit" />
+        <text class="feature-label">{{item.label}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="nav-bar">
+    <view class="nav-item {{item.active ? 'active' : ''}}" 
+          wx:for="{{navItems}}" 
+          wx:key="label" 
+          bindtap="onNavTap" 
+          data-index="{{index}}">
+      <image class="nav-icon" src="/assets/images/{{item.icon}}.png" mode="aspectFit" />
+      <text class="nav-label">{{item.label}}</text>
+    </view>
+  </view>
+</view> 
