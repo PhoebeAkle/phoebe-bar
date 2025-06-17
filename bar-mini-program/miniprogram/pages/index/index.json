@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "splash-screen": "/components/splash-screen/splash-screen",
+    "login-screen": "/components/login-screen/login-screen",
+    "main-screen": "/components/main-screen/main-screen"
+  }
+} 
