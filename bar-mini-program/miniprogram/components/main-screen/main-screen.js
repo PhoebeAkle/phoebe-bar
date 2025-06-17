@@ -7,9 +7,9 @@ Component({
       { icon: '/assets/images/shop-icon.png', label: '周边' }
     ],
     navItems: [
-      { icon: 'home', label: '主页', active: true },
-      { icon: 'cart', label: '订单', active: false },
-      { icon: 'user', label: '我的', active: false }
+      { icon: '/assets/images/home.png', label: '主页', active: true },
+      { icon: '/assets/images/cart.png', label: '订单', active: false },
+      { icon: '/assets/images/user.png', label: '我的', active: false }
     ]
   },
 
@@ -17,7 +17,8 @@ Component({
     onFeatureTap(e) {
       const { index } = e.currentTarget.dataset
       const feature = this.data.features[index]
-      console.log(feature.label)
+      console.log('Feature tapped:', feature.label)
+      // 这里可以添加具体的功能实现
     },
 
     onNavTap(e) {
@@ -27,6 +28,8 @@ Component({
         active: i === index
       }))
       this.setData({ navItems })
+      console.log('Navigation tapped:', this.data.navItems[index].label)
+      // 这里可以添加导航切换的具体实现
     }
   }
 }) 
