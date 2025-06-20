@@ -7,9 +7,9 @@ Component({
       { icon: '/assets/images/shop-icon.png', label: '周边' }
     ],
     navItems: [
-      { icon: '/assets/images/home.png', label: '主页', active: true },
-      { icon: '/assets/images/cart.png', label: '订单', active: false },
-      { icon: '/assets/images/user.png', label: '我的', active: false }
+      { icon: 'home-icon', label: '主页', active: true },
+      { icon: 'menu-icon', label: '菜单', active: false },
+      { icon: 'user-icon', label: '我的', active: false }
     ]
   },
 
