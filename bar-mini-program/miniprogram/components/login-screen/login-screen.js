@@ -3,17 +3,6 @@ Component({
     styleIsolation: 'apply-shared'
   },
 
-  properties: {
-    onLogin: {
-      type: Function,
-      value: null
-    },
-    onSkip: {
-      type: Function,
-      value: null
-    }
-  },
-
   data: {
     email: '',
     phone: '',

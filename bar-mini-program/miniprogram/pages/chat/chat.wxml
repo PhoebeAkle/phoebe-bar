@@ -1,0 +1,24 @@
+<view class="chat-bg">
+  <image class="bg-img" src="/assets/images/kitty-chat-bg.png" mode="aspectFill" />
+  <view class="chat-content">
+    <view class="chat-messages">
+      <block wx:for="{{messages}}" wx:key="id">
+        <view class="chat-bubble {{item.from}}">
+          <view class="bubble-header" wx:if="{{item.from === 'kitty'}}">
+            <text class="bubble-name">Kitty:</text>
+          </view>
+          <view class="bubble-header" wx:if="{{item.from === 'user'}}">
+            <text class="bubble-name user">我:</text>
+          </view>
+          <text class="bubble-text">{{item.text}}</text>
+        </view>
+      </block>
+    </view>
+    <view class="chat-input-bar">
+      <input class="chat-input" placeholder="输入你的问题..." value="{{inputValue}}" bindinput="onInput" confirm-type="send" bindconfirm="onSend" />
+      <button class="send-btn" bindtap="onSend">
+        <view class="send-icon"></view>
+      </button>
+    </view>
+  </view>
+</view> 

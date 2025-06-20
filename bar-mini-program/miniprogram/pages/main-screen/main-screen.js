@@ -18,7 +18,7 @@ Component({
       const { index } = e.currentTarget.dataset
       const feature = this.data.features[index]
       if (feature.label === '调酒') {
-        wx.navigateTo({ url: '../chat/chat' })
+        wx.navigateTo({ url: '/pages/chat/chat' })
         return
       }
       // 这里可以添加其他功能实现
@@ -31,7 +31,6 @@ Component({
         active: i === index
       }))
       this.setData({ navItems })
-      console.log('Navigation tapped:', this.data.navItems[index].label)
       // 这里可以添加导航切换的具体实现
     }
   }
