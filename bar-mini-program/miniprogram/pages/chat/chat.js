@@ -36,10 +36,22 @@ Page({
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + API_KEY
     };
-    const moonMsgs = msgs.map(m => ({
-      role: m.from === 'user' ? 'user' : 'assistant',
-      content: m.text
-    }))
+
+    // 1. 先定义调酒师Kitty的人设
+    const systemPrompt = {
+      role: 'system',
+      content: '你是Kitty，一位温柔、专业、风趣的女性调酒师，善于用轻松愉快的语气和用户互动，主动推荐鸡尾酒和饮品，偶尔用emoji点缀回复。'
+    };
+
+    // 2. 构造 messages，system 设定放在最前面
+    const moonMsgs = [
+      systemPrompt,
+      ...msgs.map(m => ({
+        role: m.from === 'user' ? 'user' : 'assistant',
+        content: m.text
+      }))
+    ];
+
     wx.request({
       url,
       method: 'POST',
